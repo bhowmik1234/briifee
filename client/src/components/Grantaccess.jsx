@@ -79,7 +79,7 @@ import { imgFile } from "../assets";
 const Grantaccess = () => {
     const [pass, setpass] = useState('');
     const [seed, setseed] = useState('');
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(imgFile);
     const [cid, setCid] = useState(null);
 
     const decryptData = (encryptedData, secretKey) => {
@@ -104,14 +104,19 @@ const Grantaccess = () => {
 
     React.useEffect(() => {
         // You can perform any side effects related to selectedImage here
-        setSelectedImage();
+        setSelectedImage(imgFile);
     }, [selectedImage]);
 
+
     const decript = () => {
-        const decryptedData = decryptData("U2FsdGVkX1/6fCq2Rf950REGfGMyChxSB7DO/KqqyS0qP5BiWHgGzBIfhS6P3QC3uCjEMW+/SAVjw1Hw72OEEg==", 'secret key');
+        
+        const decryptedData = decryptData(pass, seed);
         console.log('Decrypted Data:', decryptedData);
         setCid(decryptedData.setCid);
-        handleBoxClick("QmRdXGSKqRXjPkNxDzHPqEe7fmYfzLKWKSimE3GnxQ3arx");
+        console.log(cid);
+        handleBoxClick(cid);
+
+        // do the reload function
     }
 
     const revokeAccess = (date) => {

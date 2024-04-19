@@ -21,13 +21,14 @@ const Revoke = () => {
   );
   const address = useAddress();
   const [msg, setMsg] = useState([]);
-  const [setCid, GrantedCid] = useState(null);
+  const [setCid, GrantedCid] = useState("Qmc5dAkjELhjdvnWHcsS3d8MVtABeauNHqQSTaAuXJLZBC");
   const [grantaccess, setgrantaccess] = useState(false)
   const [selectDate, onDate] = useState(new Date());
   const [pass, setpass] = useState(null);
   const [email, setemail] = useState(null);
   const [popup, setIsPopupOpen] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +41,11 @@ const Revoke = () => {
     fetchData();
   }, [address, contract]);
 
+//   const a = (b) =>{
+//     setIsPopupOpen(true) ; 
+//     GrantedCid(b); 
+//     console.log(setCid);
+//   }
 
   const bytes32ToDecimal = (bytes32Hex) => {
     if (bytes32Hex.startsWith("0x")) {
@@ -74,9 +80,12 @@ const Revoke = () => {
     const jsonData = JSON.stringify(data);
       const encryptedDate = CryptoJS.AES.encrypt(jsonData, 'secret key').toString();
       console.log(encryptedDate);
+
+    //   call function to node mailer
+
       sendOTP();
       setgrantaccess(true);
-      decript();
+    //   decript();
   }
 
   const decryptData = (encryptedData, secretKey) => {
@@ -117,7 +126,7 @@ const decript = () =>{
                 <p className="body-2 mb-6 text-n-3">
                   {convertUTC(item.timestamp)}
                 </p>
-                <div onClick={() => setIsPopupOpen(true)} className="flex items-center mt-auto">
+                <div onClick={()=>{setIsPopupOpen(true) ; }} className="flex items-center mt-auto">
                   <img
                     src={benefitIcon2}
                     width={48}
