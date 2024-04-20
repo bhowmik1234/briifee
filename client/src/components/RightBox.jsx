@@ -202,7 +202,7 @@ const web3 = new Web3(window.ethereum);
 
 export const RightBox = () => {
   const [dip, setDip] = useState(false);
-    const { contract } = useContract("0x386768EafD1dBa8Bee54998E60121DBd3A8B7B73");
+    const { contract } = useContract("0xBC7E42dB009FF1F6FEc7d81370a081fdfe47b978");
     const { mutateAsync : addFileToIPFS, isLoading } = useContractWrite(contract,'addFileToIPFS');
     
     const [fileData, setFileData] = React.useState(null);

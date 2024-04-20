@@ -86,7 +86,7 @@ import axios from "axios";
 
 const Dashboard = () => {
   const { contract, isLoading } = useContract(
-    "0xf1725A52E1543c37e45DdB28d3cc63bbFC11875F"
+    "0xBC7E42dB009FF1F6FEc7d81370a081fdfe47b978"
   );
   const address = useAddress();
   console.log(address);

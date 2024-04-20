@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "verbwire",
+      "source": "@verbwire/v1.0#48rkbt1zlt3vx1fj",
+      "integrity": "sha512-NwT4YxlCjQeabyr0GIoerdOcg/Twj1p1iN7MHk0YKUacQlWmphl6x4whOVsjcyyCfOjMokJTHEb6zBEAqNOURQ==",
+      "installerVersion": "6.1.1"
+    }
+  ]
+}

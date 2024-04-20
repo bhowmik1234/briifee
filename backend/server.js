@@ -1,3 +1,4 @@
+import sdk from "@api/verbwire";
 import { create } from 'ipfs-http-client';
 import Express from 'express';
 import cors from 'cors';
@@ -137,12 +138,30 @@ app.get('/img/:cid', async (req, res) => {
 
 app.post('/share', async (req, res) => {
     try {
+        console.log("/share");
         const base64Data = req.body.fileData;
-        // console.log(base64Data);
-        // console.log(req.body);
+        //console.log(base64Data);
+        //console.log(req.body);
+        const matches = base64Data.match(/^data:(.+);base64,(.+)$/);
+        if (!matches || matches.length !== 3) {
+            throw new Error('Invalid base64 data format.');
+        }
+        const [, mimeType, base64EncodedData] = matches;
+        const fileExtension = mimeType.split('/')[1];
+        const fileName = `output.${fileExtension}`;
+
         const imageData = Buffer.from(base64Data.split(',')[1], 'base64');
-        const result = await addFileToIPFS(imageData);
-        res.status(200).json({ message: 'Image saved successfully', cid: result.path });
+        fs.writeFileSync(fileName, imageData);
+
+        sdk.auth('pk_live_fe5b252a-ac8c-4882-a4b4-fdfb703af107');
+        sdk.postNftStoreFile({filePath : 'output.jpeg'})
+        .then(({ data }) => {
+            console.log(data.ipfs_storage.ipfs_url);
+            res.status(200).json({ message: 'Image saved successfully', cid: data.ipfs_storage.ipfs_url });
+        })
+        .catch(err => console.error(err));
+        //const result = await addFileToIPFS(imageData);
+        
     } catch (error) {
         console.error('Error processing request:', error);
         res.status(500).send('Error processing request');

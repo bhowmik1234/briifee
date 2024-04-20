@@ -115,12 +115,12 @@ const Grantaccess = () => {
         setid(decryptedData.setCid);
         console.log(id);
         handleBoxClick(id);
-        revokeAccess();
         // do the reload
     }
 
     const revokeAccess = (date) => {
         if (date >= new Date().toLocaleDateString()) alert("Access denied time over !!");
+        console.log(new Date().toLocaleDateString())
     }
 
     return (

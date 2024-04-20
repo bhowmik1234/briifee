@@ -171,6 +171,7 @@ const decript = () =>{
               <label htmlFor="date" className="text-sm text-gray-700 mb-2 block">Access Expiration Date (Required)</label>
               <input
                 type="date"
+                min={new Date().toLocaleDateString}
                 value={selectDate}
                 onChange={(e) => onDate(e.target.value)}
                 className="border rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-blue-500 w-full"

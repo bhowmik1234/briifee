@@ -88,7 +88,7 @@ const web3 = new Web3(window.ethereum);
 
 const UploadButton = () => {
   const sender = useAddress();
-  const { contract } = useContract("0xf1725A52E1543c37e45DdB28d3cc63bbFC11875F");
+  const { contract } = useContract("0xBC7E42dB009FF1F6FEc7d81370a081fdfe47b978");
   const { mutateAsync : addFileToIPFS, isLoading } = useContractWrite(contract,'addFileToIPFS');
   const [files, setFiles] = useState([]);
     const [drop, setDrop] = useState(false);

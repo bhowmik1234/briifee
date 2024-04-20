@@ -166,7 +166,7 @@ import { useEffect,useState } from "react";
 import { useContract, useAddress, useContractRead } from "@thirdweb-dev/react";
 
 const DataSent = () => {
-  const { contract,isLoading } = useContract("0x386768EafD1dBa8Bee54998E60121DBd3A8B7B73"); //contract address
+  const { contract,isLoading } = useContract("0xBC7E42dB009FF1F6FEc7d81370a081fdfe47b978"); //contract address
   const address = useAddress();
   console.log(address);
   const [msg, setMsg] = useState([]);
