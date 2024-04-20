@@ -80,7 +80,7 @@ const Grantaccess = () => {
     const [pass, setpass] = useState('');
     const [seed, setseed] = useState('');
     const [selectedImage, setSelectedImage] = useState(imgFile);
-    const [cid, setCid] = useState(null);
+    const [id, setid] = useState(null);
 
     const decryptData = (encryptedData, secretKey) => {
         try {
@@ -112,20 +112,19 @@ const Grantaccess = () => {
         
         const decryptedData = decryptData(pass, seed);
         console.log('Decrypted Data:', decryptedData);
-        setCid(decryptedData.setCid);
-        console.log(cid);
-        handleBoxClick(cid);
-
-        // do the reload function
+        setid(decryptedData.setCid);
+        console.log(id);
+        handleBoxClick(id);
+        revokeAccess();
+        // do the reload
     }
 
     const revokeAccess = (date) => {
         if (date >= new Date().toLocaleDateString()) alert("Access denied time over !!");
-        else alert("You can access data");
     }
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-900">
+        <div className="flex flex-col items-center justify-center h-screen bg-zinc-900">
             <label htmlFor="password" className="text-white mb-2">Encrypted Password</label>
             <input id="password" value={pass} onChange={(e) => { setpass(e.target.value) }} type="password" className="bg-gray-800 text-white rounded-lg px-4 py-2 w-64 mb-4 focus:outline-none focus:ring-2 focus:ring-orange-500" />
             <label htmlFor="seed" className="text-white mb-2">Seed Value</label>

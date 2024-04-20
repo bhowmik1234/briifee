@@ -32,7 +32,7 @@ const Hero = () => {
           <h1 className="h1 mb-6">
           Empower Robust Encrypted Sharing with Web 3.0 {` `}
             <span className="inline-block relative">
-            Briefcase{" "}
+            Rakshak{" "}
               <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2"

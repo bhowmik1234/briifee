@@ -55,6 +55,11 @@ export const navigation = [
   },
   {
     id: "4",
+    title: "Healthbot",
+    url: "/health",
+  },
+  {
+    id: "7",
     title: "Dashboard",
     url: "/track",
   },

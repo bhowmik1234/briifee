@@ -81,7 +81,7 @@ const Revoke = () => {
       const encryptedDate = CryptoJS.AES.encrypt(jsonData, 'secret key').toString();
       console.log(encryptedDate);
 
-    //   call function to node mailer
+    //   call function to node
 
       sendOTP();
       setgrantaccess(true);
@@ -126,14 +126,17 @@ const decript = () =>{
                 <p className="body-2 mb-6 text-n-3">
                   {convertUTC(item.timestamp)}
                 </p>
-                <div onClick={()=>{setIsPopupOpen(true) ; }} className="flex items-center mt-auto">
-                  <img
-                    src={benefitIcon2}
-                    width={48}
-                    height={48}
-                    alt={item.title}
-                  />
-                  <p className="ml-auto font-code text-xs hover:underline font-bold text-n-1 uppercase tracking-wider">
+                
+                <div  className="flex items-center mt-auto">
+                <div className="flex align-middle justify-end mb-6">
+                <button
+                    onClick={()=> {GrantedCid(item.cid); console.log(setCid) }}
+                  className="text-sm text-gray-800 hover:text-white p-2 rounded-lg bg-yellow-200 focus:outline-none"
+                >
+                  Get Cid
+                </button>
+              </div>
+                  <p onClick={()=>{setIsPopupOpen(true)}} className="ml-auto font-code text-xs hover:underline font-bold text-n-1 uppercase tracking-wider">
                     Grant Access
                   </p>
                   <Arrow />
@@ -185,20 +188,14 @@ const decript = () =>{
             {!otpSent ? (
               <div className="flex justify-end mb-6">
                 <button
-                  onClick={sendOTP}
+                    
                   className="text-sm text-gray-600 hover:text-gray-800 focus:outline-none"
                 >
-                  Send OTP
+                  Get Cid
                 </button>
               </div>
             ) : (
-              <div className="mb-6">
-                <label htmlFor="password" className="text-sm text-gray-700 mb-2 block">Enter the password</label>
-                <input
-                type="password"
-                className="border rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-blue-500 w-full"
-              />
-              </div>
+              <></>
             )}
             <div className="flex justify-end">
               <button

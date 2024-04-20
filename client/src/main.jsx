@@ -13,6 +13,7 @@ import ShareService from "./components/ShareService";
 import Track from "./components/Track";
 import Revoke from "./components/Revoke";
 import Grantaccess from "./components/Grantaccess";
+import Health from "./components/Health";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path='/track' element={<Track/>}/>
       <Route path='/revoke' element={<Revoke/>}/>
       <Route path='/revoke/grant' element={<Grantaccess/>}/>
+      <Route path='/health' element={<Health/>}/>
     </Route>
   )
 )
