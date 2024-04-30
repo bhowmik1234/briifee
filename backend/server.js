@@ -11,7 +11,7 @@ const app = Express();
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://briifee.vercel.app",
 };
 
 app.use(Express.json());
